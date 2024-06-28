@@ -1,0 +1,17 @@
+
+<suite name="Grouping suite">
+	<test name="Grouping Test">
+		<groups>
+			<run>
+				<include name="Critical">
+				</include>
+				<include name="High">
+				</include>
+				</run>
+			</groups>
+			<classes>
+				<class name="Grouping.xml"></class>
+			</classes>
+	</test>	
+</suite>
+
