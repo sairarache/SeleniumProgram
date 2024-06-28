@@ -5,13 +5,13 @@
 	<test name="Chrome Testing">
 		<parameter name="browser" value="Chrome"></parameter>
 		<classes>
-			<class name="testCases.Loginpagetestcase"></class>
+			<class name="testCases.Clientpagetestcase"></class>
 		</classes>
 	</test>
 	<test name="Edge Testing">
 		<parameter name="browser" value="Edge"></parameter>
 		<classes>
-			<class name="testCases.Loginpagetestcase"></class>
+			<class name="testCases.Clientpagetestcase"></class>
 		</classes>
 	</test>	
 </suite>
