@@ -33,6 +33,15 @@ public class Clientpage {
 
 	@FindBy(xpath = "//a[@href='/payrollapp/client/update?id=20']")
 	WebElement tooltp;
+	
+	@FindBy(id="clientsearch-client_name")
+	WebElement clientsearchid;
+	
+	@FindBy(id="clientsearch-client_name")
+	WebElement searchbuttons;
+	
+	@FindBy(xpath="//table[@class='table table-striped table-bordered']//tbody//tr[1]//td[4]")
+	WebElement fieldvalue;
 
 	public void navigatetoClientpage() {
 		clientPage.click();
@@ -48,22 +57,32 @@ public class Clientpage {
 	public boolean checkboxRequirepoinCreateClientsubpage() {
 	 
 		return gu.isCheckboxRadiobuttonselected(requirepro);
-		
-
 	}
 
-	public String backgroundcolourofSearchbuttoninclientpage() {
+	public String backgroundcolourofSearchbuttoninclientpage() 
+	{
 		String text = gu.getstylePropertyValue(searchbutton, "background-color");
 		return text;
 	}
 
-	public String tooltipvalueofEditiconinClientspage() {
+	public String tooltipvalueofEditiconinClientspage() 
+	{
 		String tooltipValue = gu.getAttributevalue(tooltp, "title");
 		return tooltipValue;
 	}
-	
-	
-
-	
+	public void clientnumberid()
+	{
+		gu.enterText(searchbuttons,"Astar Logisticss123");
+	}	
+	public void navigatetosearchbutton()
+	{
+		searchbutton.click();
+	}
+	public String customerdetails()
+	{   
+		
+	   return gu.getElementText(fieldvalue);
+		
+	}
 
 }

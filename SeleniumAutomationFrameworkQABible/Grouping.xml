@@ -10,7 +10,7 @@
 				</run>
 			</groups>
 			<classes>
-				<class name="testCases.Timesheettestcasespage"></class>
+				<class name="testCases.Clientpagetestcases"></class>
 			</classes>
 	</test>	
 </suite>

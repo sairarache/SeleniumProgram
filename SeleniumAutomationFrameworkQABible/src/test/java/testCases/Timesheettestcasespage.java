@@ -45,7 +45,7 @@ public class Timesheettestcasespage extends Baseclass {
 		Assert.assertEquals(actual, expected, "username is different");
 	}
 
-	@Test
+	@Test(groups="Critical")
 	public void verifytheDynamicvalueofUser() throws IOException {
 		Loginpage lp = new Loginpage(driver);
 		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
