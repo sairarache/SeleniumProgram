@@ -37,10 +37,10 @@ public class Baseclass {
 
 	@AfterMethod(alwaysRun = true)
 	public void afterMethod(ITestResult itestResult) throws IOException {
-		if (itestResult.getStatus() == ITestResult.FAILURE) {
+		/*if (itestResult.getStatus() == ITestResult.FAILURE) {
 			CapturescreenshotforfailedTestCases sc = new CapturescreenshotforfailedTestCases();
 			sc.captureScreenShotForFailedTestcase(driver, itestResult.getName());
-		}
+		}*/
 		driver.close();
 	}
 

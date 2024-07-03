@@ -17,10 +17,8 @@ public class Workerpagetestcase extends Baseclass
   public void verifyvalueoftitledropdowninCreateWorkerpage() throws IOException
   {
 	  Loginpage lp=new Loginpage(driver);
-	  lp.enterUsername("Carol");
-	  lp.enterPassword("1q2w3e4r");
-	 // lp.enterUsername(ExcelRead.readStringDatafromExcel(2, 0));
-	//  lp.enterPassword(ExcelRead.readStringDatafromExcel(2, 1));
+	  lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+	  lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 	  lp.clickLogin();
 	  Workerpage wp=new Workerpage(driver);
 	  wp.navigateWorker();

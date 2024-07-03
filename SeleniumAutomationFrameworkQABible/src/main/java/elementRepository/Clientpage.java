@@ -61,6 +61,8 @@ public class Clientpage {
 		String tooltipValue = gu.getAttributevalue(tooltp, "title");
 		return tooltipValue;
 	}
+	
+	
 
 	
 

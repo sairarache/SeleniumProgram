@@ -11,10 +11,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.Generalutilities;
+import utilities.Wait;
 
 public class Timesheetpage {
 
 	Generalutilities gu = new Generalutilities();
+	Wait wait=new Wait();
 
 	WebDriver driver;
 
@@ -50,6 +52,9 @@ public class Timesheetpage {
 	
 	@FindBy(xpath="//a[@class='dropdown-toggle']")
 	WebElement username;
+	
+	@FindBy(xpath="//button[@class='btn btn-warning btn-responsive playslip']")
+	WebElement payslip;
 
 	public void navigatetoTimesheetpage() {
 		timesheetpage.click();
@@ -90,9 +95,10 @@ public class Timesheetpage {
 		createTimesheet.click();
 	}
 
-	public void uploadimageinCreateBrowserPage() throws AWTException  {
+	public void uploadimageinCreateBrowserPage() throws AWTException 
+	{
 		
-		gu.fileuploadaction(browserButton, driver);
+		gu.fileuploadaction(browserButton,driver);
 		uploadButton.click();
 		 
 
@@ -102,5 +108,24 @@ public class Timesheetpage {
 	{
 		return gu.isDropdownvalueselected(employmenttype,"Paye");
 	}
-
+	public void generatepayslipbutton() throws InterruptedException
+	{   
+		payslip.click();
+	
+	}
+	public String gettextofalertBox()
+	{  
+		return gu.gettextofalertbox(payslip, driver);
+	}
+	public String secondalertbox()
+	{
+		return gu.generatepayslip(payslip,driver);
+		
+     }
+	public void acceptthealertbox()
+	{
+		gu.acceptalert(driver);
+	}
+	
+    
 }

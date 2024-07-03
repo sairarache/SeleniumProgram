@@ -19,10 +19,10 @@ public class ExcelRead
 
 	
 	public static String readStringDatafromExcel( int row, int col) throws IOException {
-		File loc1 = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\ExcelRead\\Exceltestdata.xlsx");
+		File loc1 = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\Excelread\\Exceltest.xlsx");
 		f = new FileInputStream(loc1);
 		w = new XSSFWorkbook(f);
-		sh = w.getSheet("login");
+		sh = w.getSheet("Login");
 		XSSFRow r = sh.getRow(row);
 		XSSFCell d = r.getCell(col);
 		return d.getStringCellValue();
@@ -31,10 +31,11 @@ public class ExcelRead
 
 	public static String readIntegerData(int row,int col) throws IOException
 	 {   		
-		 File loc2=new File(System.getProperty("user.dir")+"\\src\\test\\resources\\ExcelRead\\Exceltestdata.xlsx");
+		 File loc2=new File(System.getProperty("user.dir")+"\\src\\test\\resources\\Excelread\\Exceltest.xlsx");
+		 
 		 f=new FileInputStream(loc2);
 		 w=new XSSFWorkbook(f);
-		 sh=w.getSheet("login");
+		 sh=w.getSheet("Login");
 		 XSSFRow r=sh.getRow(row);
 		 XSSFCell d=r.getCell(col);
 		 int x=(int) d.getNumericCellValue();

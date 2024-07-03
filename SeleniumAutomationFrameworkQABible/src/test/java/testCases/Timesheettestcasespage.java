@@ -17,8 +17,8 @@ public class Timesheettestcasespage extends Baseclass {
 	@Test
 	public void verifythetooltipvalueofTimesheetPage() throws IOException {
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(2, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(2, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -33,8 +33,8 @@ public class Timesheettestcasespage extends Baseclass {
 	@Test
 	public void verifythedetailsofuserinTimesheetPage() throws IOException {
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(3, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(3, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -48,8 +48,8 @@ public class Timesheettestcasespage extends Baseclass {
 	@Test
 	public void verifytheDynamicvalueofUser() throws IOException {
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(3, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(3, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -64,8 +64,8 @@ public class Timesheettestcasespage extends Baseclass {
 	@Test
 	public void verifyEditpageDropdownvalues() throws IOException {
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(3, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(3, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -81,8 +81,8 @@ public class Timesheettestcasespage extends Baseclass {
 	@Test
 	public void verifytheDirectclientCheckboxisSelected() throws IOException {
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(2, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(2, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -96,12 +96,12 @@ public class Timesheettestcasespage extends Baseclass {
 		System.out.println(actual);
 
 	}
-	@Test
+	@Test(groups="Critical")
 	public void verifyuploadfiefunctionalityofCreateTimesheetPage() throws AWTException, IOException
 	{
 		Loginpage lp = new Loginpage(driver);
-		lp.enterUsername(ExcelRead.readStringDatafromExcel(2, 0));
-		lp.enterPassword(ExcelRead.readStringDatafromExcel(2, 1));
+		lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+		lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 		lp.clickLogin();
 		Timesheetpage tp = new Timesheetpage(driver);
 		tp.navigatetoTimesheetpage();
@@ -112,6 +112,40 @@ public class Timesheettestcasespage extends Baseclass {
       	String expected="Paye";
         Assert.assertEquals(actual,expected,Constant.errorMessage);
         System.out.println(actual);
+		
+	}
+	@Test(groups="High")
+	 public void verifythegeneratepayslipfunctionalityworksnotnot() throws IOException, InterruptedException
+	 {
+		 Loginpage lp = new Loginpage(driver);
+			lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+			lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
+			lp.clickLogin();
+			Timesheetpage tp = new Timesheetpage(driver);
+			tp.navigatetoTimesheetpage();
+			tp.generatepayslipbutton();
+			String expected="Are you sure you want to generate payslip?";
+			String actual=tp.gettextofalertBox();
+			Assert.assertEquals(expected,actual,Constant.getText);
+			System.out.println(actual);
+	 }
+	@Test(groups="High")
+	public void verifythesecondalertbox() throws IOException, InterruptedException
+	{
+		    Loginpage lp = new Loginpage(driver);
+			lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+			lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
+			lp.clickLogin();
+			Timesheetpage tp = new Timesheetpage(driver);
+			tp.navigatetoTimesheetpage();
+			tp.generatepayslipbutton();
+			tp.gettextofalertBox();
+			tp.secondalertbox();
+			String actual=tp.secondalertbox();
+			String expected="Payslip generated!!!";
+			Assert.assertEquals(expected,actual,Constant.getText);
+			tp.acceptthealertbox();
+			System.out.println(actual);
 		
 	}
 	

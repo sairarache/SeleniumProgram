@@ -1,18 +1,23 @@
 package utilities;
 
+
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class Generalutilities {
+public  class Generalutilities {
+	
+	
 
 	public String getElementText(WebElement element)
 
@@ -57,6 +62,15 @@ public class Generalutilities {
 		return val;
 	}
 	
+	public String isDropdownvalueselectedtitle(WebElement element, String title)
+	{
+		Select obj = new Select(element);
+		obj.selectByValue(title);
+		WebElement dropdown = obj.getFirstSelectedOption();
+		String val = dropdown.getText();
+		return val;
+	}
+	
 	public boolean ispresenceofelement(WebElement element)
 	{
 		boolean f=element.isDisplayed();
@@ -89,8 +103,28 @@ public class Generalutilities {
 	       robot.delay(1000);
 	       robot.keyPress(KeyEvent.VK_ENTER);
 	       robot.keyRelease(KeyEvent.VK_ENTER);
-	       
-	}
+	   }
+	
+	    public String gettextofalertbox(WebElement element,WebDriver driver)
+	     {
+		        
+	    		String text=driver.switchTo().alert().getText();
+	    		driver.switchTo().alert().accept();
+	    		return text;
+	    	
+	     }
+	    public String generatepayslip(WebElement element,WebDriver driver)
+	    {  
+	    	Wait wait=new Wait();
+	    	wait.waittillAlertisPresent(driver);
+	    	String m= driver.switchTo().alert().getText();
+            return m;
+		  
+	    }
+	    public void acceptalert(WebDriver driver)
+	    {
+		    driver.switchTo().alert().accept();
 
+	    }
 	
 }

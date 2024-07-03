@@ -1,26 +1,26 @@
 package testCases;
 
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 import base.Baseclass;
 import elementRepository.Dashboardpage;
 import elementRepository.Loginpage;
 import utilities.ExcelRead;
 
-import java.io.IOException;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-
 public class Loginpagetestcase extends Baseclass
-{
-	
+{ 
 
-  @Test(groups="High")
+@Test(groups="High")
   public void verifyloginfunctionwithValidUsers() throws IOException 
-  {
+  {   
 	  Loginpage lp=new Loginpage(driver);
-	  lp.enterUsername("Carol");
-	  lp.enterPassword("1q2w3e4r");
+	  lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+	  lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 	  lp.clickLogin();
+	  
 	  Dashboardpage dp=new Dashboardpage(driver);
 	  dp.verifydashboardUsername();
 	  String actual=dp.verifydashboardUsername();
@@ -32,10 +32,8 @@ public class Loginpagetestcase extends Baseclass
   public void verifytheLogoutFunctionalityworksfineornot() throws IOException 
   {
 	  Loginpage lp=new Loginpage(driver);
-	  //lp.enterUsername(ExcelRead.readStringDatafromExcel(2, 0));
-	  //lp.enterPassword(ExcelRead.readStringDatafromExcel(2, 1));
-	  lp.enterUsername("Carol");
-	  lp.enterPassword("1q2w3e4r");
+	  lp.enterUsername(ExcelRead.readStringDatafromExcel(1, 0));
+	  lp.enterPassword(ExcelRead.readStringDatafromExcel(1, 1));
 	  lp.clickLogin();
 	  lp.navigatetoUserProfile();
 	  lp.clickOnLogoutbutton();

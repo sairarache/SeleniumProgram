@@ -1,5 +1,7 @@
 package elementRepository;
 
+
+
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
@@ -7,13 +9,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import utilities.ExcelRead;
 import utilities.Generalutilities;
+import utilities.Wait;
 
 public class Loginpage 
 {
 	
 	Generalutilities gu = new Generalutilities();
+	Wait wait=new Wait();
 
 	public Loginpage(WebDriver driver) {
 		this.driver = driver;

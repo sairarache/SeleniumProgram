@@ -10,10 +10,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Wait 
 {
-  public void waitforpresenceofElementlocated(WebDriver driver, String locator)
+  public void waitforpresenceofElementlocated(WebDriver driver, WebElement payslip)
   {
 	  WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(10000));
-      wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("locator")));
+      wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("locator")));
   }
   public void waitforattributetobe(WebDriver driver,WebElement element,String tooltiptitle,String tooltipvalue)
   {   	 
@@ -23,7 +23,7 @@ public class Wait
   }
   public void waittillAlertisPresent(WebDriver driver)
   {   	 
-	  WebDriverWait wait=new WebDriverWait(driver, Duration.ofMillis(10000));
+	  WebDriverWait wait=new WebDriverWait(driver,Duration.ofMillis(10000));
       wait.until(ExpectedConditions.alertIsPresent());
   }
   public void waitfortextToBePresentInElement(WebDriver driver, WebElement element,String textname)

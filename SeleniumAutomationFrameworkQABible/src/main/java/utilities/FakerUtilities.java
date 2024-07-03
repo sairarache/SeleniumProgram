@@ -4,6 +4,8 @@ import com.github.javafaker.Faker;
 
 public class FakerUtilities 
 {
+    
+  Faker faker = new Faker();  
 	public String getFakeFirstName() {
 
 		Faker faker = new Faker();  
@@ -25,6 +27,14 @@ public class FakerUtilities
 			
 			String city = faker.address().city();
 			return city;
+		}
+		
+		public String getFakeEmailId()
+		{   
+			Faker faker = new Faker();
+            String mail=faker.internet().emailAddress();
+            return mail;
+
 		}
 
 	}
